@@ -24,9 +24,9 @@
 2.点击 创建数据库，输入数据库名称，然后创建。
 
 3.进入数据库的控制台，执行下方的 SQL 语句来快速创建所需的表结构。
-```
-1. 建立書籤表 (sites)
 
+1. 建立書籤表 (sites)
+```
 CREATE TABLE sites (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
@@ -39,23 +39,24 @@ CREATE TABLE sites (
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
+```
 
 
 
 2. 建立分類表 (catalogs)
-
+```
 CREATE TABLE catalogs (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL UNIQUE,
   sort_order INTEGER DEFAULT 0,
   is_private INTEGER DEFAULT 0 NOT NULL
 );
-
+```
 
 
 
 3. 建立待審核書籤表 (pending_sites)
+```
 CREATE TABLE pending_sites (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
@@ -65,8 +66,9 @@ CREATE TABLE pending_sites (
   catelog TEXT NOT NULL,
   create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-
+```
+最后执行
+```
 ALTER TABLE catalogs ADD COLUMN icon TEXT;
 ```
 >**提示**: ·使用 SQL 是最快捷的方式。如果你想手动建表，请确保字段名、类型与上述 SQL 一致。
